@@ -1,6 +1,6 @@
 let today = moment();
-let hourNow = moment().format("H");
-// let hourNow = 11;
+let hourNow = Number(moment().format("H"));
+// let hourNow = 13;
 $("#currentDay").text(today.format("MMM Do, YYYY hh:mm a"));
 let rowArray = $("div.row")
 
@@ -8,7 +8,7 @@ let rowArray = $("div.row")
 
 for (let index = 0; index < rowArray.length; index++) {
   console.log(rowArray[index]);
-  let currentHour = rowArray[index].id
+  let currentHour = Number(rowArray[index].id)
   console.log(currentHour);
 
   
@@ -21,9 +21,7 @@ for (let index = 0; index < rowArray.length; index++) {
   } else if (currentHour < hourNow){
     rowArray[index].children[1].classList.add("past");
      console.log("past");
-  } else {
-    rowArray[index].children[1].classList.add("past");
-  }
+  } 
 
 
  }
