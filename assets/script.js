@@ -1,6 +1,7 @@
 let today = moment();
 //wrapped time in number() to display as int.
 let hourNow = Number(moment().format("H"));
+
 let rowArray = $("div.row");
 // displays current day and time
 $("#currentDay").text(today.format("MMM Do, YYYY hh:mm a"));
