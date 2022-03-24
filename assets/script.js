@@ -1,11 +1,33 @@
 let today = moment();
-$("")
-
-
-
-
-
+let hourNow = moment().format("H");
+// let hourNow = 11;
 $("#currentDay").text(today.format("MMM Do, YYYY hh:mm a"));
+let rowArray = $("div.row")
+
+
+
+for (let index = 0; index < rowArray.length; index++) {
+  console.log(rowArray[index]);
+  let currentHour = rowArray[index].id
+  console.log(currentHour);
+
+  
+  if (currentHour === hourNow) {
+    rowArray[index].children[1].classList.add("present")
+    console.log("present");
+  } else if (currentHour > hourNow) {
+    rowArray[index].children[1].classList.add("future")
+     console.log("future");
+  } else if (currentHour < hourNow){
+    rowArray[index].children[1].classList.add("past");
+     console.log("past");
+  } else {
+    rowArray[index].children[1].classList.add("past");
+  }
+
+
+ }
+
 
 
 $(".saveBtn").on("click", function () {
@@ -15,60 +37,18 @@ $(".saveBtn").on("click", function () {
   localStorage.setItem(time, text)
 })
 
-
-localStorage.getItem("9")
-
-//add id to text areas
-//select text areas with jquery
-//target value with val method
-//assign localstorage.getitem to that value
 $(timeBlock9).val(localStorage.getItem("9"));
-
-
-// $("#9 .description").val(localStorage.getItem("9"));
-// $("#10 .description").val(localStorage.getItem("9"));
-// $("11 .description").val(localStorage.getItem("9"));
-// $("#12 .description").val(localStorage.getItem("9"));
-// $("#13 .description").val(localStorage.getItem("9"));
-// $("#14 .description").val(localStorage.getItem("9"));
-// $("#15 .description").val(localStorage.getItem("9"));
-// $("#16 .description").val(localStorage.getItem("9"));
-// $("#17 .description").val(localStorage.getItem("9"));
+$(timeBlock10).val(localStorage.getItem("10"));
+$(timeBlock11).val(localStorage.getItem("11"));
+$(timeBlock12).val(localStorage.getItem("12"));
+$(timeBlock13).val(localStorage.getItem("13"));
+$(timeBlock14).val(localStorage.getItem("14"));
+$(timeBlock15).val(localStorage.getItem("15"));
+$(timeBlock16).val(localStorage.getItem("16"));
+$(timeBlock17).val(localStorage.getItem("17"));
 
 
 
 
 
 
-
-if ($(this) === m) {
-  
-} else {
-  
-}
-
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-
-
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
-
-
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-
-// TODO SET UP COLORS FOR TIME BLOCKS
-
-// WHEN I click into a timeblock
-// THEN I can enter an event
-
-//ADDED AREATEXT
-
-
-// WHEN I click the save button for that timeblock
-// TODO  THEN the text for that event is saved in local storage
-
-
-// WHEN I refresh the page
-// TODO THEN the saved events persist
