@@ -1,37 +1,37 @@
 let today = moment();
+//wrapped time in number() to display as int.
 let hourNow = Number(moment().format("H"));
-// let hourNow = 13;
+let rowArray = $("div.row");
+// displays current day and time
 $("#currentDay").text(today.format("MMM Do, YYYY hh:mm a"));
-let rowArray = $("div.row")
 
-
-
+// for loop that controls color change of time blocks
+//wrapped var in number() to display as int
 for (let index = 0; index < rowArray.length; index++) {
   console.log(rowArray[index]);
   let currentHour = Number(rowArray[index].id)
   console.log(currentHour);
 
-  
+  //condition that controls color of time block
   if (currentHour === hourNow) {
     rowArray[index].children[1].classList.add("present")
-    console.log("present");
+    
   } else if (currentHour > hourNow) {
     rowArray[index].children[1].classList.add("future")
-     console.log("future");
+     
   } else if (currentHour < hourNow){
     rowArray[index].children[1].classList.add("past");
-     console.log("past");
+     
   } 
 
 
  }
 
-
+// this logic controls setting and getting data from local storage
 
 $(".saveBtn").on("click", function () {
   let text = $(this).siblings(".description").val().trim()
   let time = $(this).parent().attr("id")
-  // $(event.target).sibling(1).val()
   localStorage.setItem(time, text)
 })
 
